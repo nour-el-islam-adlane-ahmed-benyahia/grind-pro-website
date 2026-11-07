@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRIND PRO — New Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){var t=null;try{t=localStorage.getItem("gp_theme")}catch(e){}
+if(!t)t=(window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark";
+document.documentElement.setAttribute("data-theme",t)})();
+</script>
+</head>
+<body>
+<header>
+  <div class="logo">GRIND<b> PRO</b></div>
+  <div class="hr"><button class="tg" id="tg" onclick="toggleTheme()" aria-label="Thème"></button><button class="cartbtn" onclick="openCart()"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Panier <span id="cnt">0</span></button></div>
+</header>
+
+<section class="hero">
+  <h1>NEW <em>COLLECTION</em></h1>
+  <p>Quality streetwear. Fast shipping.</p>
+  <a class="btn" href="#shop">Voir la collection</a>
+</section>
+<div class="perks"><div><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg> Livraison 58 wilayas</div><div><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> Paiement à la livraison</div><div><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Qualité garantie</div></div>
+
+<h2 id="shop">COLLECTION</h2>
+<div class="grid" id="grid"></div>
+
+<footer>© GRIND PRO — Commandez en 1 minute, on vous appelle pour confirmer.</footer>
+
+<!-- Product modal -->
+<div class="ov" id="pm"><div class="box" id="pbox"></div></div>
+<!-- Cart modal -->
+<div class="ov" id="cm"><div class="box">
+  <button class="x" onclick="closeAll()" aria-label="Fermer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <h3 style="margin-bottom:8px">Votre panier</h3>
+  <div id="clines"></div>
+  <div class="tot"><span>Total</span><span id="ctot">0 DA</span></div>
+  <button class="btn full" id="gocheck" onclick="openCheckout()">Commander</button>
+</div></div>
+<!-- Checkout modal -->
+<div class="ov" id="km"><div class="box" id="kbox">
+  <button class="x" onclick="closeAll()" aria-label="Fermer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width:2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <h3>Vos informations</h3>
+  <form id="f" onsubmit="send(event)">
+    <label>Nom complet</label><input name="Nom" required>
+    <label>Téléphone</label><input name="Telephone" type="tel" required placeholder="05 / 06 / 07 ...">
+    <div class="row">
+      <div><label>Wilaya</label><input name="Wilaya" required placeholder="ex: Alger"></div>
+      <div><label>Commune</label><input name="Commune" required></div>
+    </div>
+    <label>Adresse de livraison</label><textarea name="Adresse" rows="2" required></textarea>
+    <div class="tot"><span>Total</span><span id="ktot"></span></div>
+    <button class="btn full" id="sb" type="submit">Confirmer la commande</button>
+    <div class="msg" id="err"></div>
+  </form>
+</div></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
